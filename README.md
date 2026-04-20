@@ -1,3 +1,5 @@
+# AO1 PPROG WEB 2
+## Facundo Castillo
 # punto 1 - diagrama de flujo
 ![Diagrama de flujo del servidor](docs/diagrama-flujo.png)
 
@@ -14,8 +16,11 @@ Lo uso con:
 - `createServer()` para crear el servidor.
 - `listen()` para dejarlo escuchando en el puerto.
 - `writeHead()` y `end()` para responder al cliente con headers y cuerpo.
+- 
+write() permite enviar el cuerpo en partes. En este proyecto uso end() directamente porque envía y cierra en un paso, pero write() sería útil para respuestas grandes.
 
 Los elegí porque es la base de todo en este TP y me permite resolver el routing manualmente, sin frameworks.
+
 
 ### `fs/promises`
 Lo uso para todo lo que es archivos, siempre de forma asíncronica.
@@ -24,6 +29,7 @@ Métodos que uso en el proyecto:
 - `readFile()` para leer noticias y archivos estáticos.
 - `appendFile()` para guardar nuevas noticias.
 - `stat()` para verificar si existe un archivo y para obtener `mtime` (sirve para saber si cambió y refrescar caché).
+Cada noticia se guarda como una línea JSON dentro de noticias.txt usando appendFile(). Esto permite almacenar tanto el título como el cuerpo de forma estructurada. Al leer el archivo con readFile() se separa por saltos de línea y se parsea cada línea
 
 Sobre `readdir()`: en esta implementación no fue necesario usarlo porque las rutas estáticas se resuelven directamente desde el pathname pedido por el cliente. De todas formas, `readdir()` sería útil si quisiera listar automáticamente los archivos de una carpeta y generar una vista dinámica de directorio.
 
@@ -117,6 +123,7 @@ En `POST /publicar` no recibo el body de una sola vez. Node lo entrega en partes
 
 Después parseo con `new URLSearchParams(cuerpo)` y extraigo `titulo` y `cuerpo`.  
 Si alguno viene vacío, respondo `400`. Si está todo bien, guardo la noticia.
+Con new URLSearchParams(cuerpo) parseo el string recibido. Por ejemplo si llega titulo=Hola&cuerpo=Mundo, datos.get('titulo') devuelve 'Hola'
 
 ## Bloque D - Parámetros GET
 
@@ -152,3 +159,11 @@ Esto permite atender múltiples requests sin bloquear la ejecución mientras hay
 - `400`: validación fallida en formulario (faltan título/cuerpo).
 - `404`: ruta, recurso o noticia no encontrada.
 - `500`: error interno inesperado.
+
+## reposiotrio
+
+https://github.com/Facunditome/AO1-WEB2
+
+## enlace editable del diagrama de flujo
+
+https://drive.google.com/file/d/1NH8SQw3Qqq48_FzLo7f8Qo8IWfESyLNP/view?usp=sharing
