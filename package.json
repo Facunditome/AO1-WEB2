@@ -1,0 +1,17 @@
+{
+  "name": "ao1_web2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "servidor.js",
+  "scripts": {
+    "start": "node servidor.js",
+    "test": "echo \"Sin tests automatizados\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "mime": "^4.1.0"
+  }
+}
