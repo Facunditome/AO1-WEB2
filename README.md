@@ -167,3 +167,8 @@ https://github.com/Facunditome/AO1-WEB2
 ## enlace editable del diagrama de flujo
 
 https://drive.google.com/file/d/1NH8SQw3Qqq48_FzLo7f8Qo8IWfESyLNP/view?usp=sharing
+
+o 
+
+https://app.diagrams.net/#G1NH8SQw3Qqq48_FzLo7f8Qo8IWfESyLNP
+
